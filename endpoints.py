@@ -1,8 +1,15 @@
 from flask import Flask, request
 import pdb
 import telega_logic
+import requests
 
 app = Flask(__name__)
+
+
+# делаем вместо курла
+curl_url = f"https://api.telegram.org/bot{os.environ.get('TOKEN')}/setWebhook"
+r = requests.post(curl_url, data = {'url': os.environ.get('HOST_SERVER')})  
+
 
 # ендпоинты для гитхаба
 @app.route("/from_git_to_telega", methods=["GET", "POST"])

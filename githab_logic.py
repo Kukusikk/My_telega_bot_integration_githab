@@ -25,7 +25,7 @@ def check_api_token(api_token):
 def create_webhok_githab(info):
     api_token = info['api_token']
     g = github.Github(api_token)
-    url=f"{os.environ.get('HOST_SERVER')}/from_git_to_telega"  # хост меняется при развороте
+    url=f"{environ.get('os.HOST_SERVER')}/from_git_to_telega"  # хост меняется при развороте
     conf={'url': url, "content_type": "json"}
 
     try:
